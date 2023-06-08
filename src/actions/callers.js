@@ -1,10 +1,5 @@
 import * as api from "../api";
-import {
-  CREATE,
-  DELETE,
-  FETCH_ALL,
-  UPDATE,
-} from "../consts/callersActionTypes";
+import { POST, DELETE, FETCH_ALL, PATCH } from "../consts/callersActionTypes";
 
 // Action creators
 
@@ -19,10 +14,10 @@ export const getCallers = () => async dispatch => {
 };
 
 // Create a new caller
-export const createCaller = post => async dispatch => {
+export const createCaller = caller => async dispatch => {
   try {
-    const { data } = await api.createCaller(post);
-    dispatch({ type: CREATE, payload: data });
+    const { data } = await api.createCaller(caller);
+    dispatch({ type: POST, payload: data });
   } catch (error) {
     console.log(error);
   }
@@ -32,7 +27,7 @@ export const createCaller = post => async dispatch => {
 export const updateCaller = (id, caller) => async dispatch => {
   try {
     const { data } = await api.updateCaller(id, caller);
-    dispatch({ type: UPDATE, payload: data });
+    dispatch({ type: PATCH, payload: data });
   } catch (error) {
     console.log(error);
   }

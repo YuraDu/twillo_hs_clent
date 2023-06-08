@@ -1,11 +1,25 @@
+import { useEffect } from "react";
 import "./App.css";
-import { useGetCallersQuery } from "./service/service";
+import Main from "./components/Main/Main";
+import Container from "@mui/material/Container";
+
+import { useDispatch } from "react-redux";
+import { getCallers } from "./actions/callers";
 
 function App() {
-  const { data } = useGetCallersQuery();
-  console.log("🚀 ~ file: App.jsx:7 ~ App ~ data:", data);
+  const dispatch = useDispatch();
 
-  return <></>;
+  useEffect(() => {
+    dispatch(getCallers());
+  }, [dispatch]);
+
+  return (
+    <>
+      <Container maxWidth="xs">
+        <Main />
+      </Container>
+    </>
+  );
 }
 
 export default App;
