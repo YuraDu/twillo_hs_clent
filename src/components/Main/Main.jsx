@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   FormControl,
   InputLabel,
   MenuItem,
@@ -11,9 +12,11 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import SelectedCaller from "../Callers/SelectedCaller";
 import { useSelector } from "react-redux";
+import AddContact from "../AddContact/AddContact";
 
 export default function Main() {
   const [selectedCall, setSelectedCall] = useState();
+  const [eddContact, setAddContact] = useState(false);
 
   const callers = useSelector(state => state.callers);
 
@@ -27,6 +30,19 @@ export default function Main() {
 
   return (
     <>
+      {!eddContact ? (
+        <Paper sx={{ padding: "10px", width: "280px", marginBottom: "10px" }}>
+          <Button
+            onClick={() => setAddContact(prev => !prev)}
+            variant="contained"
+          >
+            Add Contact
+          </Button>
+        </Paper>
+      ) : (
+        <AddContact setAddContact={setAddContact} />
+      )}
+
       <Paper sx={{ padding: "10px", width: "280px", marginBottom: "10px" }}>
         <Box sx={{ minWidth: 120 }}>
           <FormControl fullWidth>
