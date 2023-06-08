@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SelectedCaller from "../Callers/SelectedCaller";
 import { useSelector } from "react-redux";
 
@@ -21,6 +21,10 @@ export default function Main() {
     setSelectedCall(e.target.value);
   };
 
+  useEffect(() => {
+    return () => {};
+  }, [callers]);
+
   return (
     <>
       <Paper sx={{ padding: "10px", width: "280px", marginBottom: "10px" }}>
@@ -32,7 +36,7 @@ export default function Main() {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={selectedCall?.caller}
+              value={selectedCall?.caller || ""}
               label="Choose a contact"
               onChange={handleChange}
             >
@@ -47,7 +51,14 @@ export default function Main() {
           </FormControl>
         </Box>
       </Paper>
-      <Paper>{selectedCall && <SelectedCaller caller={selectedCall} />}</Paper>
+      <Paper>
+        {selectedCall && (
+          <SelectedCaller
+            caller={selectedCall}
+            setSelectedCall={setSelectedCall}
+          />
+        )}
+      </Paper>
     </>
   );
 }

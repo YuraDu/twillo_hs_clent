@@ -13,7 +13,7 @@ export const createCaller = newCaller =>
 
 // Update a caller by ID
 export const updateCaller = (id, updatedCaller) =>
-  axios.patch(`http://localhost:3000/callers${id}`, updatedCaller);
+  axios.patch(`http://localhost:3000/callers/${id}`, updatedCaller);
 
 // Delete a caller by ID
 export const deleteCaller = id => axios.delete(`http://localhost:3000/callers/${id}`);

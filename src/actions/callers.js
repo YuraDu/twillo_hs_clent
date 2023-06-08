@@ -27,6 +27,7 @@ export const createCaller = caller => async dispatch => {
 export const updateCaller = (id, caller) => async dispatch => {
   try {
     const { data } = await api.updateCaller(id, caller);
+    console.log("🚀 ~ file: callers.js:30 ~ updateCaller ~ caller:", caller)
     dispatch({ type: PATCH, payload: data });
   } catch (error) {
     console.log(error);
