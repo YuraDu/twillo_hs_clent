@@ -13,7 +13,7 @@ Brief description or introduction of the project.
 
 ```
 
-git clone https://github.com/your-username/project-name.git
+git clone https://github.com/YuraDXPNetwork/twillo_hs_server.git
 
 ```
 
@@ -21,7 +21,7 @@ git clone https://github.com/your-username/project-name.git
 
 ```
 
-cd project-name
+cd client
 
 ```
 
@@ -45,7 +45,7 @@ npm run dev
 
 This will build the project and start a local development server using Vite.
 
-Open your web browser and visit `http://localhost:3000` to see the application.
+Open your web browser and visit `http://localhost:5173` to see the application.
 
 ## Build
 
@@ -62,14 +62,6 @@ This will generate a production-ready build in the `dist` directory.
 ## Linting
 
 To lint the project's source code, you can use the following command:
-
-```
-
-npm run lint
-
-```
-
-This command will run ESLint and check for any code quality issues or errors.
 
 ## Additional Notes
 
